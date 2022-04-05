@@ -39,12 +39,12 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 
     Route::prefix('product')->group(function(){
 
-        Route::get('/',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProduct');
-        Route::get('create',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductAdd');
-        Route::post('store',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductCreate');
-        Route::get('edit/{id}',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductEdit');
-        Route::post('update/{id}',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductUpdate');
-        Route::get('delete/{id}',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductDelete');
+        Route::get('/',[App\Http\Controllers\Admin\ProductController::class,'index'])->name('adminProduct');
+        Route::get('create',[App\Http\Controllers\Admin\ProductController::class,'create'])->name('adminProductAdd');
+        Route::post('store',[App\Http\Controllers\Admin\ProductController::class,'store'])->name('adminProductCreate');
+        Route::get('edit/{id}',[App\Http\Controllers\Admin\ProductController::class,'edit'])->name('adminProductEdit');
+        Route::post('update/{id}',[App\Http\Controllers\Admin\ProductController::class,'update'])->name('adminProductUpdate');
+        Route::get('delete/{id}',[App\Http\Controllers\Admin\ProductController::class,'delete'])->name('adminProductDelete');
         Route::get('show',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductShow');
     });
     
