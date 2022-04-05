@@ -19,12 +19,12 @@ class CategoryController extends Controller
     {
         $dataList = DB::table('categories')->get(); 
 
-        return view('admin.category', ['dataList' => $dataList]);
+        return view('admin.category.category', ['dataList' => $dataList]);
     }
 
     public function add()
     {
-        return view('admin.category_add');
+        return view('admin.category.category_add');
     }
 
 
@@ -59,7 +59,7 @@ class CategoryController extends Controller
     {
         $data = Category::find($id);
         $dataList = DB::table('categories')->get(); 
-        return view('admin.category_edit', [ 'data' => $data, 'dataList' => $dataList]);
+        return view('admin.category.category_edit', [ 'data' => $data, 'dataList' => $dataList]);
     }
 
    

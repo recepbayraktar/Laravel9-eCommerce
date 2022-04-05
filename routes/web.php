@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Laravel\Jetstream\Rules\Role;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +17,15 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
+Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+
+
 Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminHome')->middleware('auth');
 Route::get('/admin/login', [App\Http\Controllers\Admin\HomeController::class, 'login'])->name('adminLogin');
 Route::post('/admin/logincheck', [App\Http\Controllers\Admin\HomeController::class, 'loginCheck'])->name('adminLoginCheck');
 Route::get('/admin/logout', [App\Http\Controllers\Admin\HomeController::class, 'logout'])->name('adminLogout');
-Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
-Route::get('/login', [HomeController::class, 'login'])->name('login');
+
 
 Route::middleware('auth')->prefix('admin')->group(function (){
 
@@ -31,6 +36,18 @@ Route::middleware('auth')->prefix('admin')->group(function (){
     Route::get('/category/edit/{id}',[App\Http\Controllers\Admin\CategoryController::class,'edit'])->name('adminCategoryEdit');
     Route::get('/category/delete/{id}',[App\Http\Controllers\Admin\CategoryController::class,'destroy'])->name('adminCategoryDestroy');
     Route::get('/category/show',[App\Http\Controllers\Admin\CategoryController::class,'show'])->name('adminCategoryShow');
+
+    Route::prefix('product')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProduct');
+        Route::get('create',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductAdd');
+        Route::post('store',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductCreate');
+        Route::get('edit/{id}',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductEdit');
+        Route::post('update/{id}',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductUpdate');
+        Route::get('delete/{id}',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductDelete');
+        Route::get('show',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductShow');
+    });
+    
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

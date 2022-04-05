@@ -22,8 +22,17 @@
     </head>
     <body>
       <body>
-        <!--header section start -->
-        <div class="header_section">
+        <div class="container-scroller">
+          
           
             @include('admin._navbar')
+          <div class="container-fluid page-body-wrapper">
+            @include('admin._sidebar')
+            <div class="main-panel">
+              @yield('content')
+              @include('admin._footer')
+            </div>
+          </div>
+
+        </div>
     </body>
