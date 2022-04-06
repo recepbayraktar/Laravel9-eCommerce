@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -15,7 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.product');
+        $dataList = DB::table('products')->get(); 
+        return view('admin.product.product', ['dataList' => $dataList]);
     }
 
     /**
@@ -25,7 +29,25 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        DB::table('products')->insert([
+            
+            'slug' => request()->input('slug'),
+            'title' => request()->input('title'),
+            'description' => request()->input('description'),
+            'image' => request()->input('iamge'),
+            'tax' => request()->input('tax'),
+            'quantity' => request()->input('quantity'),
+            'detail' => request()->input('detail'),
+            'keywords' => request()->input('keywords'),
+            'price' => request()->input('price')
+                      
+        ]);
+        return redirect(route('adminProduct'));
+    }
+
+    public function add()
+    {
+        return view('admin.product.product_add');
     }
 
     /**
@@ -56,9 +78,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product,$id)
     {
-        //
+        $data = Product::find($id);
+        $dataList = Category::All();
+        return view('admin.product.product_edit', [ 'data' => $data, 'dataList' => $dataList]);
     }
 
     /**
@@ -68,9 +92,21 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product,$id)
     {
-        //
+        $data = Product::find($id);
+        $data->slug = request()->input('slug');
+        $data->title = request()->input('title');
+        $data->description = request()->input('description');
+        $data->image = request()->input('iamge');
+        $data->tax = request()->input('tax');
+        $data->quantity = request()->input('quantity');
+        $data->detail = request()->input('detail');
+        $data->keywords = request()->input('keywords');
+        $data->price = request()->input('price');
+        $data->user_id = Auth::id();
+        $data->save();
+        return redirect()->route('adminProduct');
     }
 
     /**
@@ -79,8 +115,9 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product,$id)
     {
-        //
+        DB::table('products')->where('id', '=', $id)->delete();
+        return redirect()->route('adminProduct');
     }
 }

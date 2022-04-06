@@ -6,7 +6,7 @@
     <div class="main-panel">
         <div class="content-wrapper">
          
-          <td><a href="{{ route('adminCategoryAdd') }}"><button type="button" class="btn btn-primary">Add</button></td></a>
+          <td><a href="{{ route('adminProductAdd') }}"><button type="button" class="btn btn-primary">Add</button></td></a>
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -20,13 +20,15 @@
                   @foreach($dataList  as $data)
                     <tr>
                       <th scope="row">1</th>
-                      <td><li> Adı {{$data->title}} </li></td>
+                      <td><li> {{$data->title}} </li></td>
                       <td>{{ $data->slug }}</td>
-                      <td>{{$data->description}}</td>
-                      <td>{{$data->keywords}}</td>
-                      <td>{{$data->slug}}</td>
-                      <td><a href="{{ route('adminCategoryDestroy',['id' => $data->id]) }}"><button type="button" class="btn btn-warning">Delete</button></td></a>
-                      <td><a href="{{ route('adminCategoryEdit',['id' => $data->id]) }}"><button type="button" class="btn btn-warning">Edit</button></td></a>
+                      <td>{{$data->price}}</td>
+                      <td>{{$data->quantity}}</td>
+                      <td>{{$data->status}}</td>
+                      <td>{{$data->category_id}}</td>
+                      <td>{{$data->id}}</td>
+                      <td><a href="{{ route('adminProductDestroy',['id' => $data->id]) }}"><button type="button" class="btn btn-warning">Delete</button></td></a>
+                      <td><a href="{{ route('adminProductEdit',['id' => $data->id]) }}"><button type="button" class="btn btn-warning">Edit</button></td></a>
                     </tr>
                   @endforeach
                 </tbody>

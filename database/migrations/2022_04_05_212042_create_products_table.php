@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('user_id')->nullable();
             $table->integer('quantity')->default(1);
             $table->integer('minquantity')->default(5);
+            $table->integer('price')->default(0);
             $table->integer('tax')->default(18);
             $table->text('detail')->nullable();
             
