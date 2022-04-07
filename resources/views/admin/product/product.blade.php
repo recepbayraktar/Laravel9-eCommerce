@@ -11,9 +11,15 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Image Gallery</th>
+                    <th scope="col">Category Id</th>
+                    <th scope="col">Id</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -25,6 +31,12 @@
                       <td>{{$data->price}}</td>
                       <td>{{$data->quantity}}</td>
                       <td>{{$data->status}}</td>
+                      <td>
+                        @if ($data->image)
+                          <img src="{{ Storage::url($data->image) }}" height="30" >
+                        @endif
+                      </td>
+                      <td><a href="{{ route('adminImageCreate', ['product_id' => $data->id]) }}">Image Gallery</a></td>
                       <td>{{$data->category_id}}</td>
                       <td>{{$data->id}}</td>
                       <td><a href="{{ route('adminProductDestroy',['id' => $data->id]) }}"><button type="button" class="btn btn-warning">Delete</button></td></a>

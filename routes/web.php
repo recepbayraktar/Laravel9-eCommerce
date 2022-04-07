@@ -44,9 +44,17 @@ Route::middleware('auth')->prefix('admin')->group(function (){
         Route::get('add',[App\Http\Controllers\Admin\ProductController::class,'add'])->name('adminProductAdd');
         Route::get('edit/{id}',[App\Http\Controllers\Admin\ProductController::class,'edit'])->name('adminProductEdit');
         Route::post('update/{id}',[App\Http\Controllers\Admin\ProductController::class,'update'])->name('adminProductUpdate');
-        Route::get('delete/{id}',[App\Http\Controllers\Admin\ProductController::class,'delete'])->name('adminProductDelete');
         Route::get('show',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductShow');
         Route::get('delete/{id}',[App\Http\Controllers\Admin\ProductController::class,'destroy'])->name('adminProductDestroy');
+    });
+
+    Route::prefix('image')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\Admin\ImageController::class,'index'])->name('adminImage');
+        Route::get('create/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'create'])->name('adminImageCreate');
+        Route::post('add/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'add'])->name('adminImageAdd');
+        Route::get('show',[App\Http\Controllers\Admin\ImageController::class,'show'])->name('adminImageShow');
+        Route::get('delete/{id}/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('adminImageDestroy');
     });
     
 });

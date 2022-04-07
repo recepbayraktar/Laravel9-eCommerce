@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -27,27 +28,31 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        DB::table('products')->insert([
-            
-            'slug' => request()->input('slug'),
-            'title' => request()->input('title'),
-            'description' => request()->input('description'),
-            'image' => request()->input('iamge'),
-            'tax' => request()->input('tax'),
-            'quantity' => request()->input('quantity'),
-            'detail' => request()->input('detail'),
-            'keywords' => request()->input('keywords'),
-            'price' => request()->input('price')
-                      
-        ]);
+        $data = new Product;
+        $data->slug = request()->input('slug');
+        $data->title = request()->input('title');
+        $data->description = request()->input('description');
+        $data->image = request()->input('iamge');
+        $data->tax = request()->input('tax');
+        $data->quantity = request()->input('quantity');
+        $data->detail = request()->input('detail');
+        $data->keywords = request()->input('keywords');
+        $data->price = request()->input('price');
+        $data->user_id = Auth::id();
+        $data->image = Storage::putFile('images', $request->file('image'));
+
+        $data->save();
+        
         return redirect(route('adminProduct'));
     }
 
     public function add()
-    {
-        return view('admin.product.product_add');
+    {   
+        $dataList = Category::All();
+
+        return view('admin.product.product_add',['dataList' => $dataList]);
     }
 
     /**
