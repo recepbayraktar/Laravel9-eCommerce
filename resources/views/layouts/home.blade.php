@@ -33,7 +33,7 @@
 </head>
     <div class="header_section">
         @include('home._navbar')
-        
+        @include('home._header')
     </div>
     @yield('content')
     @include('home._footer')
