@@ -56,6 +56,9 @@ Route::middleware('auth')->prefix('admin')->group(function (){
         Route::get('show',[App\Http\Controllers\Admin\ImageController::class,'show'])->name('adminImageShow');
         Route::get('delete/{id}/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('adminImageDestroy');
     });
+
+    Route::get('setting',[App\Http\Controllers\Admin\SettingController::class,'index'])->name('adminSetting');
+    Route::post('setting/update',[App\Http\Controllers\Admin\SettingController::class,'update'])->name('adminSettingUpdate');
     
 });
 
