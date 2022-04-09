@@ -29,13 +29,15 @@ Route::get('/admin/logout', [App\Http\Controllers\Admin\HomeController::class, '
 
 Route::middleware('auth')->prefix('admin')->group(function (){
 
-    Route::get('/category',[App\Http\Controllers\Admin\CategoryController::class,'index'])->name('adminCategory');
-    Route::get('/category/add',[App\Http\Controllers\Admin\CategoryController::class,'add'])->name('adminCategoryAdd');
-    Route::post('/category/create',[App\Http\Controllers\Admin\CategoryController::class,'create'])->name('adminCategoryCreate');
-    Route::post('/category/update/{id}',[App\Http\Controllers\Admin\CategoryController::class,'update'])->name('adminCategoryUpdate');
-    Route::get('/category/edit/{id}',[App\Http\Controllers\Admin\CategoryController::class,'edit'])->name('adminCategoryEdit');
-    Route::get('/category/delete/{id}',[App\Http\Controllers\Admin\CategoryController::class,'destroy'])->name('adminCategoryDestroy');
-    Route::get('/category/show',[App\Http\Controllers\Admin\CategoryController::class,'show'])->name('adminCategoryShow');
+    Route::prefix('category')->group(function() {
+        Route::get('/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('adminCategory');
+        Route::get('/add', [App\Http\Controllers\Admin\CategoryController::class, 'add'])->name('adminCategoryAdd');
+        Route::post('/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('adminCategoryCreate');
+        Route::post('/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('adminCategoryUpdate');
+        Route::get('/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('adminCategoryEdit');
+        Route::get('/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('adminCategoryDestroy');
+        Route::get('/show', [App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('adminCategoryShow');
+    });
 
     Route::prefix('product')->group(function(){
 
@@ -57,9 +59,13 @@ Route::middleware('auth')->prefix('admin')->group(function (){
         Route::get('delete/{id}/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('adminImageDestroy');
     });
 
-    Route::get('setting',[App\Http\Controllers\Admin\SettingController::class,'index'])->name('adminSetting');
-    Route::post('setting/update',[App\Http\Controllers\Admin\SettingController::class,'update'])->name('adminSettingUpdate');
-    
+    Route::prefix('setting')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\Admin\SettingController::class,'index'])->name('adminSetting');
+        Route::post('/update',[App\Http\Controllers\Admin\SettingController::class,'update'])->name('adminSettingUpdate');
+    });
+
+
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -18,6 +18,16 @@
       <input type="text" class="form-control" value="{{ $data->description }}" name="description"  >
     </div>
     <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select name="parent_id" class="form-control" id="exampleFormControlSelect1">
+          @foreach ($dataList as $rs)
+          <option value="{{ $rs->id }}" @if ($rs->id == $data->parent_id) selected="selected" @endif
+
+            > {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }} </option>
+          @endforeach
+        </select>
+      </div>
+    <div class="form-group">
       <label for="exampleFormControlInput1">title</label>
       <input type="text" class="form-control" value="{{ $data->title }}" name="title"  >
     </div>

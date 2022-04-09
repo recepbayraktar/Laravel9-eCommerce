@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class SettingController extends Controller
 {
@@ -17,7 +19,8 @@ class SettingController extends Controller
     {
         $data = Setting::first();
 
-        if ($data == null) {
+        if ($data == null)
+        {
             $data = new Setting();
             $data->title = 'Project Title';
             $data = Setting::first();
@@ -80,6 +83,11 @@ class SettingController extends Controller
     {
         $id = $request->input('id');
         $data = Setting::find($id);
+        $columns = Schema::getColumnListing('settings');
+
+       /*  foreach ($columns as $column) {
+            $data->$column = request()->input($column);
+        } */
         $data->company = request()->input('company');
         $data->title = request()->input('title');
         $data->description = request()->input('description');
@@ -115,4 +123,6 @@ class SettingController extends Controller
     {
         //
     }
+
+
 }

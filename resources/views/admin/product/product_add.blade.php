@@ -34,10 +34,10 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
+      <select name="category_id" class="form-control" id="exampleFormControlSelect1">
         @foreach ($dataList as $rs)
-        <option value="{{ $rs->title }}"> {{ $rs->title }}</option>
-        @endforeach        
+        <option value="{{ $rs->id }}">  {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }} </option>
+        @endforeach
       </select>
     </div>
     <div class="form-group">

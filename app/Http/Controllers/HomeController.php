@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
+    public static function categoryList(){
+        return Category::where('parent_id', '=', 0)->with('children')->get();
+    }
+
     public function index(){
         return view(view: 'home.index');
     }

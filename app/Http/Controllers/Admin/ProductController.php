@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Schema;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $dataList = DB::table('products')->get(); 
+        $dataList = Product::all();
+
         return view('admin.product.product', ['dataList' => $dataList]);
     }
 
@@ -28,28 +30,31 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {
-        $data = new Product;
-        $data->slug = request()->input('slug');
-        $data->title = request()->input('title');
-        $data->description = request()->input('description');
-        $data->image = request()->input('iamge');
-        $data->tax = request()->input('tax');
-        $data->quantity = request()->input('quantity');
-        $data->detail = request()->input('detail');
-        $data->keywords = request()->input('keywords');
-        $data->price = request()->input('price');
-        $data->user_id = Auth::id();
-        $data->image = Storage::putFile('images', $request->file('image'));
 
-        $data->save();
-        
-        return redirect(route('adminProduct'));
+     public function create(Request $request)
+    {
+        $route = route('adminProduct');
+
+        return Controller::Controllercreate(new Product,$request, $route);
+
+
+        //  $data = new Product;
+
+        // $columns = Schema::getColumnListing('products');
+
+        // foreach ($columns as $column) {
+        //     if( request()->input($column) != null){
+        //         $data->$column = request()->input($column);
+        //     }
+        // }
+
+        // $data->save();
+
+        // return redirect(route('adminProduct'));
     }
 
     public function add()
-    {   
+    {
         $dataList = Category::All();
 
         return view('admin.product.product_add',['dataList' => $dataList]);
@@ -86,7 +91,7 @@ class ProductController extends Controller
     public function edit(Product $product,$id)
     {
         $data = Product::find($id);
-        $dataList = Category::All();
+        $dataList = Category::with('children')->get();
         return view('admin.product.product_edit', [ 'data' => $data, 'dataList' => $dataList]);
     }
 
@@ -103,7 +108,7 @@ class ProductController extends Controller
         $data->slug = request()->input('slug');
         $data->title = request()->input('title');
         $data->description = request()->input('description');
-        $data->image = request()->input('iamge');
+        $data->image = request()->input('image');
         $data->tax = request()->input('tax');
         $data->quantity = request()->input('quantity');
         $data->detail = request()->input('detail');

@@ -43,8 +43,8 @@
       <label for="exampleFormControlSelect1">Example select</label>
       <select class="form-control" id="exampleFormControlSelect1">
         @foreach ($dataList as $rs)
-        <option value="{{ $rs->title }}" @if ($rs->id == $data->id) slected="selected" @endif> {{ $rs->title }}</option>
-        @endforeach        
+        <option value="{{ $rs->title }}" @if ($rs->id == $data->id) selected="selected" @endif>  {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}</option>
+        @endforeach
       </select>
     </div>
 

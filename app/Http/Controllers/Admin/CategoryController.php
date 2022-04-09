@@ -15,16 +15,34 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     protected $appends = [
+         'getParentsTree'
+     ];
+
+    public static function getParentsTree($category,$title){
+        if ($category->parent_id == 0) {
+            return $title;
+        }
+
+        $parent = Category::find($category->parent_id);
+        $title = $parent->title . ' > ' . $title;
+
+        return CategoryController::getParentsTree($parent,$title);
+    }
+
     public function index()
     {
-        $dataList = DB::table('categories')->get(); 
+        $dataList = Category::with('children')->get();
 
         return view('admin.category.category', ['dataList' => $dataList]);
     }
 
     public function add()
     {
-        return view('admin.category.category_add');
+        $dataList = Category::with('children')->get();
+
+        return view('admin.category.category_add', ['dataList' => $dataList]);
     }
 
 
@@ -33,17 +51,16 @@ class CategoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {
-        DB::table('categories')->insert([
-            'slug' => request()->input('email'),
-            'title' => request()->input('title'),
-            'description' => request()->input('description'),
-            'keywords' => request()->input('keywords')
-            
-        ]);
-        return redirect(route('adminCategory'));
-    }
+    // public function create(Request $request)
+    // {
+    //     DB::table('categories')->insert([
+    //         'slug' => request()->input('email'),
+    //         'title' => request()->input('title'),
+    //         'description' => request()->input('description'),
+    //         'keywords' => request()->input('keywords')
+    //     ]);
+    //     return redirect(route('adminCategory'));
+    // }
 
     public function store(Request $request)
     {
@@ -58,11 +75,11 @@ class CategoryController extends Controller
     public function edit(Category $category,$id)
     {
         $data = Category::find($id);
-        $dataList = DB::table('categories')->get(); 
-        return view('admin.category.category_edit', [ 'data' => $data, 'dataList' => $dataList]);
+        $dataList = DB::table('categories')->get();
+        return view('admin.category.category_edit',['data' => $data, 'dataList' =>$dataList ]);
     }
 
-   
+
     public function update(Request $request, Category $category,$id)
     {
        $data = Category::find($id);
