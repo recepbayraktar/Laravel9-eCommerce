@@ -6,10 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Schema;
+
 
 class ProductController extends Controller
 {

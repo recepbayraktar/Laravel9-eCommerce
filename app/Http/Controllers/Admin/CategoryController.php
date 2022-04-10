@@ -20,12 +20,6 @@ class CategoryController extends Controller
          'getParentsTree'
      ];
 
-     function __construct()
-    {
-        $this->model = new Category;
-        $this->route = route("adminCategory");
-    }
-
     public static function getParentsTree($category,$title){
         if ($category->parent_id == 0) {
             return $title;
@@ -51,43 +45,6 @@ class CategoryController extends Controller
         return view('admin.category.category_add', ['dataList' => $dataList]);
     }
 
-
-     /**
-     * Display a listing of the resource.
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    // public function create(Request $request)
-    // {
-    //     DB::table('categories')->insert([
-    //         'slug' => request()->input('email'),
-    //         'title' => request()->input('title'),
-    //         'description' => request()->input('description'),
-    //         'keywords' => request()->input('keywords')
-    //     ]);
-    //     return redirect(route('adminCategory'));
-    // }
-
-    // public function create(Request $request)
-    // {
-    //     $route = route('adminProduct');
-
-    //     return Controller::create(new Category,$request, $route);
-    // }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-
-    public function show(Category $category)
-    {
-        //
-    }
-
     public function edit(Category $category,$id)
     {
         $data = Category::find($id);
@@ -95,16 +52,14 @@ class CategoryController extends Controller
         return view('admin.category.category_edit',['data' => $data, 'dataList' =>$dataList ]);
     }
 
+    public function create(){
+        return Controller::insert(new Category,route('adminCategory'));
+    }
 
-    public function update(Request $request, Category $category,$id)
+
+    public function update($id)
     {
-       $data = Category::find($id);
-       $data->title = $request->input('title');
-       $data->keywords = $request->input('keywords');
-       $data->description = $request->input('description');
-       $data->slug = $request->input('slug');
-        $data->save();
-        return redirect()->route('adminCategory');
+       return Controller::insert(new Category,route('adminCategory'),$id);
 
     }
 
