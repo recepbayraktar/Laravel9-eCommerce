@@ -17,7 +17,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-    public static function foo( Model $model, mixed $route,mixed $id = null ){
+    public static function insert( Model $model, mixed $route,mixed $id = null ){
 
         $columns = Schema::getColumnListing($model->getTable());
         if (isset($id)) {
