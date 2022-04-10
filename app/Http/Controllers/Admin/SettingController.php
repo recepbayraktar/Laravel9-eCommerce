@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = Setting::first();
@@ -25,6 +20,7 @@ class SettingController extends Controller
         }
         return view('admin.setting.setting_edit', [ 'data' => $data]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -115,4 +111,5 @@ class SettingController extends Controller
     {
         //
     }
+
 }
