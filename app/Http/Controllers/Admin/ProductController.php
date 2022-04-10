@@ -18,11 +18,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-        $this->model = new Product;
-        $this->route = route("adminProduct");
-    }
+
 
     public function index()
     {
@@ -53,9 +49,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+       return Controller::foo(new Product, route("adminProduct"));
     }
 
     /**
@@ -91,19 +87,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product,$id)
     {
-        $data = Product::find($id);
-        $data->slug = request()->input('slug');
-        $data->title = request()->input('title');
-        $data->description = request()->input('description');
-        $data->image = request()->input('image');
-        $data->tax = request()->input('tax');
-        $data->quantity = request()->input('quantity');
-        $data->detail = request()->input('detail');
-        $data->keywords = request()->input('keywords');
-        $data->price = request()->input('price');
-        $data->user_id = Auth::id();
-        $data->save();
-        return redirect()->route('adminProduct');
+        return Controller::foo(new Product, route("adminProduct"),$id);
     }
 
     /**

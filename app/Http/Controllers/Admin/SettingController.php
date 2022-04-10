@@ -77,7 +77,7 @@ class SettingController extends Controller
     public function update(Request $request, Setting $setting)
     {
         $id = $request->input('id');
-        $data = Setting::find($id);
+        $data = Setting::first();
         $columns = Schema::getColumnListing('settings');
 
        /*  foreach ($columns as $column) {
