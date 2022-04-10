@@ -34,25 +34,4 @@ class Controller extends BaseController
         return redirect($route);
     }
 
-    /* public function update(){
-
-        $columns = Schema::getColumnListing($this->model->getTable());
-
-        foreach ($columns as $column) {
-            if( request()->input($column) != null){
-                $this->model->$column = request()->input($column);
-            }
-        }
-
-        $this->model->save();
-
-        return redirect($this->route);
-
-    } */
-
-
-
-
-
-
 }
