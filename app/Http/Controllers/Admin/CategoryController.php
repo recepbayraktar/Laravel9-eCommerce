@@ -20,6 +20,12 @@ class CategoryController extends Controller
          'getParentsTree'
      ];
 
+     function __construct()
+    {
+        $this->model = new Category;
+        $this->route = route("adminCategory");
+    }
+
     public static function getParentsTree($category,$title){
         if ($category->parent_id == 0) {
             return $title;
@@ -62,10 +68,20 @@ class CategoryController extends Controller
     //     return redirect(route('adminCategory'));
     // }
 
+    // public function create(Request $request)
+    // {
+    //     $route = route('adminProduct');
+
+    //     return Controller::create(new Category,$request, $route);
+    // }
+
+
     public function store(Request $request)
     {
         //
     }
+
+
 
     public function show(Category $category)
     {

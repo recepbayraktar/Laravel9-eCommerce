@@ -18,6 +18,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+        $this->model = new Product;
+        $this->route = route("adminProduct");
+    }
+
     public function index()
     {
         $dataList = Product::all();
@@ -31,27 +37,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function create(Request $request)
-    {
-        $route = route('adminProduct');
-
-        return Controller::Controllercreate(new Product,$request, $route);
 
 
-        //  $data = new Product;
-
-        // $columns = Schema::getColumnListing('products');
-
-        // foreach ($columns as $column) {
-        //     if( request()->input($column) != null){
-        //         $data->$column = request()->input($column);
-        //     }
-        // }
-
-        // $data->save();
-
-        // return redirect(route('adminProduct'));
-    }
 
     public function add()
     {

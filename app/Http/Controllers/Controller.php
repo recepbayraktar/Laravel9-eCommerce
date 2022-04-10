@@ -15,24 +15,26 @@ use phpDocumentor\Reflection\Types\Null_;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    function __construct()
+    {
+        $this->model = null;
+        $this->route = route("adminHome");
 
-    public function Controllercreate(Model $model,Request $request, mixed $route){
-        // if($route === null):
-        //     $route = route('admin');
-        // endif;
-        $data = new $model;
+    }
 
-        $columns = Schema::getColumnListing('products');
+    public function create(){
+
+        $columns = Schema::getColumnListing($this->model->getTable());
 
         foreach ($columns as $column) {
             if( request()->input($column) != null){
-                $data->$column = request()->input($column);
+                $this->model->$column = request()->input($column);
             }
         }
 
-        $data->save();
+        $this->model->save();
 
-        return redirect($route);
+        return redirect($this->route);
     }
 
 
