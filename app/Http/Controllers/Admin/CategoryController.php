@@ -10,11 +10,6 @@ use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
      protected $appends = [
          'getParentsTree'
@@ -60,12 +55,12 @@ class CategoryController extends Controller
     public function update($id)
     {
        return Controller::insert(new Category,route('adminCategory'),$id);
-
     }
 
     public function destroy(Request $request,$id)
     {
         DB::table('categories')->where('id', '=', $id)->delete();
         return redirect()->route('adminCategory');
+
     }
 }

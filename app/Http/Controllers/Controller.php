@@ -17,7 +17,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-    public static function insert( Model $model, mixed $route,mixed $id = null ){
+    public static function insert( Model $model, mixed $route = null,mixed $id = null ){
 
         $columns = Schema::getColumnListing($model->getTable());
         if (isset($id)) {
@@ -31,7 +31,12 @@ class Controller extends BaseController
 
         $model->save();
 
-        return redirect($route);
+       if ($route == null) {
+            return redirect()->back();
+       }
+       else {
+            return redirect($route);
+       }
     }
 
 }
