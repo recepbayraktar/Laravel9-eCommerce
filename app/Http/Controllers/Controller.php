@@ -16,22 +16,28 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    function __construct()
+    {
+        $this->model = null;
+        $this->route = redirect()->back();
 
-    public static function foo( Model $model, mixed $route,mixed $id = null ){
+    }
+    public function insert($id = null){
 
-        $columns = Schema::getColumnListing($model->getTable());
+        $columns = Schema::getColumnListing($this->model->getTable());
         if (isset($id)) {
-            $model = $model->where('id', '= ', $id);
+            $this->model = $this->model->where('id', '= ', $id);
         }
+
         foreach ($columns as $column) {
             if( request()->input($column) != null){
-                $model->$column = request()->input($column);
+                $this->model->$column = request()->input($column);
             }
         }
 
-        $model->save();
+        $this->model->save();
 
-        return redirect($route);
+        return redirect($this->route);
     }
 
 }

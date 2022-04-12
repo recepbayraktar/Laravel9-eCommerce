@@ -32,8 +32,8 @@ Route::middleware('auth')->prefix('admin')->group(function (){
     Route::prefix('category')->group(function() {
         Route::get('/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('adminCategory');
         Route::get('/add', [App\Http\Controllers\Admin\CategoryController::class, 'add'])->name('adminCategoryAdd');
-        Route::post('/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('adminCategoryCreate');
-        Route::post('/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('adminCategoryUpdate');
+        Route::post('/create', [App\Http\Controllers\Admin\CategoryController::class, 'insert'])->name('adminCategoryCreate');
+        Route::post('/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'insert'])->name('adminCategoryUpdate');
         Route::get('/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('adminCategoryEdit');
         Route::get('/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('adminCategoryDestroy');
         Route::get('/show', [App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('adminCategoryShow');
@@ -42,10 +42,10 @@ Route::middleware('auth')->prefix('admin')->group(function (){
     Route::prefix('product')->group(function(){
 
         Route::get('/',[App\Http\Controllers\Admin\ProductController::class,'index'])->name('adminProduct');
-        Route::post('create',[App\Http\Controllers\Admin\ProductController::class,'create'])->name('adminProductCreate');
+        Route::post('create',[App\Http\Controllers\Admin\ProductController::class,'insert'])->name('adminProductCreate');
         Route::get('add',[App\Http\Controllers\Admin\ProductController::class,'add'])->name('adminProductAdd');
         Route::get('edit/{id}',[App\Http\Controllers\Admin\ProductController::class,'edit'])->name('adminProductEdit');
-        Route::post('update/{id}',[App\Http\Controllers\Admin\ProductController::class,'update'])->name('adminProductUpdate');
+        Route::post('update/{id}',[App\Http\Controllers\Admin\ProductController::class,'insert'])->name('adminProductUpdate');
         Route::get('show',[App\Http\Controllers\Admin\ProductController::class,'show'])->name('adminProductShow');
         Route::get('delete/{id}',[App\Http\Controllers\Admin\ProductController::class,'destroy'])->name('adminProductDestroy');
     });

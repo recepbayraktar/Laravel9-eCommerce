@@ -10,20 +10,14 @@ use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
      protected $appends = [
          'getParentsTree'
      ];
 
-     function __construct()
+    function __construct()
     {
         $this->model = new Category;
-        $this->route = route("adminCategory");
+        $this->route = null;
     }
 
     public static function getParentsTree($category,$title){
@@ -49,43 +43,6 @@ class CategoryController extends Controller
         $dataList = Category::with('children')->get();
 
         return view('admin.category.category_add', ['dataList' => $dataList]);
-    }
-
-
-     /**
-     * Display a listing of the resource.
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    // public function create(Request $request)
-    // {
-    //     DB::table('categories')->insert([
-    //         'slug' => request()->input('email'),
-    //         'title' => request()->input('title'),
-    //         'description' => request()->input('description'),
-    //         'keywords' => request()->input('keywords')
-    //     ]);
-    //     return redirect(route('adminCategory'));
-    // }
-
-    // public function create(Request $request)
-    // {
-    //     $route = route('adminProduct');
-
-    //     return Controller::create(new Category,$request, $route);
-    // }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-
-    public function show(Category $category)
-    {
-        //
     }
 
     public function edit(Category $category,$id)
