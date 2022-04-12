@@ -22,7 +22,7 @@ class Controller extends BaseController
         $this->route = redirect()->back();
 
     }
-    public function insert($id = null){
+    public function insert( Model $model, $route = null,$id = null){
 
         $columns = Schema::getColumnListing($this->model->getTable());
         if (isset($id)) {
@@ -37,7 +37,12 @@ class Controller extends BaseController
 
         $this->model->save();
 
-        return redirect($this->route);
+        if ($route != null) {
+            return redirect($route);
+        }
+        else {
+            return $this->route;
+        }
     }
 
 }

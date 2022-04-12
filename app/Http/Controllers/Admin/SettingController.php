@@ -35,7 +35,7 @@ class SettingController extends Controller
     public function update(Request $request, Setting $setting)
     {
         $id = Setting::first()['id'];
-       return Controller::insert($id);
+       return Controller::insert($id, $this->model, route('adminSetting'));
     }
 
 }

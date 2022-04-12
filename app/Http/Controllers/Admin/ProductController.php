@@ -13,17 +13,16 @@ use Illuminate\Support\Facades\Schema;
 
 class ProductController extends Controller
 {
-    function __construct()
-    {
-        $this->model = new Product();
-        $this->route = route("adminProduct");
-    }
 
     public function index()
     {
         $dataList = Product::all();
 
         return view('admin.product.product', ['dataList' => $dataList]);
+    }
+
+    public function create(){
+        return Controller::insert(new Product, route('adminCategory'));
     }
 
 
@@ -45,5 +44,9 @@ class ProductController extends Controller
     {
         DB::table('products')->where('id', '=', $id)->delete();
         return redirect()->route('adminProduct');
+    }
+
+    public function update($id){
+        return Controller::insert(new Product(), route('adminCategory'),$id);
     }
 }

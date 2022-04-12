@@ -14,10 +14,8 @@ class CategoryController extends Controller
          'getParentsTree'
      ];
 
-    function __construct()
-    {
-        $this->model = new Category;
-        $this->route = null;
+    public function create(){
+        return Controller::insert(new Category(), route('adminCategory'));
     }
 
     public static function getParentsTree($category,$title){
@@ -55,14 +53,7 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category,$id)
     {
-       $data = Category::find($id);
-       $data->title = $request->input('title');
-       $data->keywords = $request->input('keywords');
-       $data->description = $request->input('description');
-       $data->slug = $request->input('slug');
-        $data->save();
-        return redirect()->route('adminCategory');
-
+        return Controller::insert(new Category(), route('adminCategory'),$id);
     }
 
     public function destroy(Request $request,$id)
