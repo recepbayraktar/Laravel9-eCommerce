@@ -10,9 +10,9 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
 <title>Woods</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">	
+<meta name="keywords" content="@yield('keywords')">
+<meta name="description" content="@yield('description')">
+<meta name="author" content="@yield('company')">
 <!-- bootstrap css -->
 <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/home/css/bootstrap.min.css">
 <!-- style css -->
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="{{ asset('assets') }}/home/css/jquery.mCustomScrollbar.min.css">
 <!-- Tweaks for older IEs-->
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<!-- owl stylesheets --> 
+<!-- owl stylesheets -->
 <link rel="stylesheet" href="{{ asset('assets') }}/home/css/owl.carousel.min.css">
 <link rel="stylesheet" href="{{ asset('assets') }}/home/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -33,8 +33,9 @@
 </head>
     <div class="header_section">
         @include('home._navbar')
-        @include('home._header')
+        @yield('home._header')
     </div>
+    @yield('home._about')
     @yield('content')
     @include('home._footer')
 
@@ -48,7 +49,7 @@
     <!-- sidebar -->
     <script src="{{ asset('assets') }}/home/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="{{ asset('assets') }}/home/js/custom.js"></script>
-    <!-- javascript --> 
+    <!-- javascript -->
     <script src="{{ asset('assets') }}/home/js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script>
@@ -57,9 +58,9 @@
        openEffect: "none",
        closeEffect: "none"
        });
-       </script>	
+       </script>
 
-    
-    
+
+
 </body>
 </html>

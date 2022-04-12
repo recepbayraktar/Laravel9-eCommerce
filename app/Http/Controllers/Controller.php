@@ -39,4 +39,9 @@ class Controller extends BaseController
        }
     }
 
+    public static function delete( Model $model, mixed $route = null,mixed $id){
+
+    }
+
+
 }

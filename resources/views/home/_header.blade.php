@@ -1,3 +1,6 @@
+@php
+    $setting = App\Http\Controllers\HomeController::getSetting();
+@endphp
 <div class="banner_section layout_padding">
 			<div class="container-fluid">
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -74,6 +77,6 @@
 								<span class="carousel-control-next-icon" aria-hidden="true"></span>
 								<span class="sr-only">Next</span>
 					</a>
-				</div>		
+				</div>
 			</div>
 		</div>

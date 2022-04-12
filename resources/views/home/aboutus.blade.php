@@ -16,10 +16,7 @@
     {{ $setting->description }}
 @endsection
 
-@section('home._header')
-    @include('home._header')
+@section('content')
+    @include('home._about')
 @endsection
 
-@section('content')
-    @include('home._content')
-@endsection

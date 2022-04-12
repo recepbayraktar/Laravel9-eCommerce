@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,32 @@ class HomeController extends Controller
     }
 
     public function index(){
+
         return view(view: 'home.index');
+    }
+
+    public function aboutus(){
+
+        return view(view: 'home.aboutus');
+    }
+
+    public function contact(){
+
+        return view(view: 'home.contact');
+    }
+
+    public function faq(){
+
+        return view(view: 'home.faq');
+    }
+
+    public function explore(){
+
+        return view(view: 'home.explore');
+    }
+
+    public static function getSetting(){
+        return Setting::first();
     }
 
     public function login(){

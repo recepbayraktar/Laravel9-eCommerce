@@ -19,12 +19,31 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/explore', [HomeController::class, 'explore'])->name('explore');
+
 
 
 Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminHome')->middleware('auth');
 Route::get('/admin/login', [App\Http\Controllers\Admin\HomeController::class, 'login'])->name('adminLogin');
 Route::post('/admin/logincheck', [App\Http\Controllers\Admin\HomeController::class, 'loginCheck'])->name('adminLoginCheck');
 Route::get('/admin/logout', [App\Http\Controllers\Admin\HomeController::class, 'logout'])->name('adminLogout');
+
+
+Route::middleware('auth')->prefix('myaccount')->group(function (){
+
+    Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('myAccount');
+
+});
+
+Route::middleware('auth')->prefix('user')->namespace('user')->group(function (){
+
+    Route::get('/profile', [App\Http\Controllers\UserController::class, 'index']);
+
+});
 
 
 Route::middleware('auth')->prefix('admin')->group(function (){
