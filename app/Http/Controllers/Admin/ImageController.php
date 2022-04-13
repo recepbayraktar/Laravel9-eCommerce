@@ -17,21 +17,23 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function show($product_id)
     {
-
+        $data = Product::find($product_id);
+        $images = DB::table('images')->where('product_id', '=', $product_id)->get();
+        return view('admin.image.image_show');
     }
 
-    public function add($product_id)
+    public function create($product_id)
     {
         $data = Product::find($product_id);
         $images = DB::table('images')->where('product_id', '=', $product_id)->get();
 
-        return view('admin.image.image_create', [ 'data' => $data, 'images' => $images]);
+        return view('admin.image.image_add', [ 'data' => $data, 'images' => $images]);
     }
 
 
-    public function create(Request $request, $product_id)
+    public function store(Request $request, $product_id)
     {
         $data = new Image;
         $data->title = request()->input('title');
@@ -46,6 +48,6 @@ class ImageController extends Controller
     {
 
         DB::table('images')->where('id', '=', $id)->delete();
-        return redirect(route('adminImageCreate',[ 'product_id' => $product_id, 'id' => $id]));
+        return redirect(route('adminImageAdd',[ 'product_id' => $product_id, 'id' => $id]));
     }
 }

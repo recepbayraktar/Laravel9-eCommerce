@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
     public function index(){
+        $setting = Setting::first();
+        $slider = Product::select('title','image','price')->limit(4)->get();
         return view(view: 'admin.index');
     }
 

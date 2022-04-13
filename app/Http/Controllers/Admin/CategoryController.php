@@ -20,7 +20,8 @@ class CategoryController extends Controller
              'slug' => request()->input('email'),
              'title' => request()->input('title'),
              'description' => request()->input('description'),
-             'keywords' => request()->input('keywords')
+             'keywords' => request()->input('keywords'),
+             'parent_id' => request()->input('parent_id')
 
          ]);
          return redirect(route('adminCategory'));

@@ -5,7 +5,7 @@
 
 @section('content')
 <h2>{{ $data->title }}</h2>
-<form action="{{ route('adminImageAdd', ['product_id' => $data->id]) }}" enctype="multipart/form-data" method="POST">
+<form action="{{ route('adminImageStore', ['product_id' => $data->id]) }}" enctype="multipart/form-data" method="POST">
     @csrf
     <div class="form-group">
       <label for="exampleFormControlInput1">title</label>

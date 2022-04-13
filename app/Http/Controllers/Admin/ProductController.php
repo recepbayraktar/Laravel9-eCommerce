@@ -16,7 +16,11 @@ class ProductController extends Controller
     protected $appends = [
         'getParentsTree'
     ];
-
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
     public function index()
     {
@@ -27,7 +31,7 @@ class ProductController extends Controller
 
     public function add()
     {
-        $dataList = Product::All();
+        $dataList = Category::All();
 
         return view('admin.product.product_add',['dataList' => $dataList]);
     }
@@ -38,7 +42,7 @@ class ProductController extends Controller
         $data->slug = request()->input('slug');
         $data->title = request()->input('title');
         $data->description = request()->input('description');
-        $data->image = request()->input('iamge');
+        $data->image = request()->input('image');
         $data->tax = request()->input('tax');
         $data->quantity = request()->input('quantity');
         $data->detail = request()->input('detail');
@@ -65,7 +69,7 @@ class ProductController extends Controller
         $data->slug = request()->input('slug');
         $data->title = request()->input('title');
         $data->description = request()->input('description');
-        $data->image = request()->input('iamge');
+        $data->image = request()->input('image');
         $data->tax = request()->input('tax');
         $data->quantity = request()->input('quantity');
         $data->detail = request()->input('detail');

@@ -10,21 +10,22 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">title</th>
+                    <th scope="col">slug</th>
+                    <th scope="col">description</th>
+                    <th scope="col">keywords</th>
+                    <th scope="col">id</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($dataList  as $data)
                     <tr>
-                      <th scope="row">1</th>
-                      <td><li> Adı {{$data->title}} </li></td>
+
+                      <td><li> {{$data->title}} </li></td>
                       <td>{{ $data->slug }}</td>
                       <td>{{$data->description}}</td>
                       <td>{{$data->keywords}}</td>
-                      <td>{{$data->slug}}</td>
+                      <td>{{$data->id}}</td>
                       <td>
                           {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data, $data->title)}}
                       </td>

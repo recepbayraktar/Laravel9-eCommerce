@@ -17,6 +17,6 @@
 @endsection
 
 @section('content')
-    @include('home._about')
+    {{!! $setting->aboutus !!}}
 @endsection
 

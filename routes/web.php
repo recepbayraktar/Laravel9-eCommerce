@@ -24,6 +24,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/explore', [HomeController::class, 'explore'])->name('explore');
+Route::post('/sendmessage', [HomeController::class, 'sendMessage'])->name('sendMessage');
 
 
 
@@ -72,10 +73,9 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 
     Route::prefix('image')->group(function(){
 
-        Route::get('/',[App\Http\Controllers\Admin\ImageController::class,'index'])->name('adminImage');
-        Route::get('create/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'create'])->name('adminImageCreate');
-        Route::post('add/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'add'])->name('adminImageAdd');
-        Route::get('show',[App\Http\Controllers\Admin\ImageController::class,'show'])->name('adminImageShow');
+        Route::get('create/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'create'])->name('adminImageAdd');
+        Route::post('store/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'store'])->name('adminImageStore');
+        Route::get('show/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'show'])->name('adminImageShow');
         Route::get('delete/{id}/{product_id}',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('adminImageDestroy');
     });
 
@@ -83,6 +83,15 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 
         Route::get('/',[App\Http\Controllers\Admin\SettingController::class,'index'])->name('adminSetting');
         Route::post('/update',[App\Http\Controllers\Admin\SettingController::class,'update'])->name('adminSettingUpdate');
+    });
+
+    Route::prefix('message')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\Admin\MessageController::class,'index'])->name('adminMessage');
+        Route::get('edit/{id}',[App\Http\Controllers\Admin\MessageController::class,'edit'])->name('adminMessageEdit');
+        Route::post('update/{id}',[App\Http\Controllers\Admin\MessageController::class,'update'])->name('adminMessageUpdate');
+        Route::get('show',[App\Http\Controllers\Admin\MessageController::class,'show'])->name('adminMessageShow');
+        Route::get('delete/{id}',[App\Http\Controllers\Admin\MessageController::class,'destroy'])->name('adminMessageDestroy');
     });
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use App\Models\Message;
 use App\Models\Setting;
 
 class HomeController extends Controller
@@ -13,6 +14,7 @@ class HomeController extends Controller
     public static function categoryList(){
         return Category::where('parent_id', '=', 0)->with('children')->get();
     }
+
 
     public function index(){
 
@@ -37,6 +39,21 @@ class HomeController extends Controller
     public function explore(){
 
         return view(view: 'home.explore');
+    }
+
+    public function sendMessage(Request $request){
+
+        $data = new Message();
+
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $data->subject = $request->input('subject');
+        $data->message = $request->input('message');
+        $data->note = $request->input('note');
+
+        $data->save();
+        return redirect()->route('contact');
     }
 
     public static function getSetting(){

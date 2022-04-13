@@ -38,7 +38,7 @@
                           <img src="{{ Storage::url($data->image) }}" height="30" >
                         @endif
                       </td>
-                      <td><a href="{{ route('adminImageCreate', ['product_id' => $data->id]) }}">Image Gallery</a></td>
+                      <td><a href="{{ route('adminImageAdd', ['product_id' => $data->id]) }}">Image Gallery</a></td>
                       <td>{{$data->id}}</td>
                       <td><a href="{{ route('adminProductDestroy',['id' => $data->id]) }}"><button type="button" class="btn btn-warning">Delete</button></td></a>
                       <td><a href="{{ route('adminProductEdit',['id' => $data->id]) }}"><button type="button" class="btn btn-warning">Edit</button></td></a>
