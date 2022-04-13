@@ -41,7 +41,8 @@ Route::middleware('auth')->prefix('myaccount')->group(function (){
 
 Route::middleware('auth')->prefix('user')->namespace('user')->group(function (){
 
-    Route::get('/profile', [App\Http\Controllers\UserController::class, 'index']);
+
+    Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->name('profile.show');
 
 });
 

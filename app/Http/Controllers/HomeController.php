@@ -57,7 +57,7 @@ class HomeController extends Controller
                 return redirect()->intended('home');
             }
 
-            return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+            return redirect()->intended('home')->withErrors(['email' => 'The provided credentials do not match our records.']);
         }
     }
 

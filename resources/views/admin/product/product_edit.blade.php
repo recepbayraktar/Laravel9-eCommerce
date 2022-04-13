@@ -16,6 +16,7 @@
 @section('content')
 <form action="{{ route('adminProductUpdate', ['id' => $data->id]) }}" enctype="multipart/form-data" method="post">
     @csrf
+
     <div class="form-group">
       <label for="exampleFormControlInput1">Slug</label>
       <input value="{{ $data->slug }}" type="text" class="form-control" name="slug">
@@ -41,7 +42,7 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
+      <select class="form-control" name="category_id" id="exampleFormControlSelect1">
         @foreach ($dataList as $rs)
         <option value="{{ $rs->title }}" @if ($rs->id == $data->id) selected="selected" @endif>  {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}</option>
         @endforeach
