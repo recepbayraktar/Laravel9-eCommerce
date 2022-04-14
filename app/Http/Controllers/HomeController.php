@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use App\Models\Message;
+use App\Models\Setting;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -14,7 +17,25 @@ class HomeController extends Controller
     }
 
     public function index(){
-        return view(view: 'home.index');
+        $setting = Setting::first();
+        $slider = Product::select('title','image','price', 'id', 'slug')->limit(4)->get();
+
+        $data= [
+            'setting' => $setting,
+            'slider' => $slider
+        ];
+        return view('home.index', $data);
+    }
+
+    public function product($id,$slug){
+        $data = Product::find($id);
+
+        exit();
+    }
+
+    public function productCatalog($id,$slug){
+        $data = Product::find($id);
+        return view('home.product_catalog', ['data' => $data]);
     }
 
     public function login(){

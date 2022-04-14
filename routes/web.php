@@ -19,6 +19,15 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/explore', [HomeController::class, 'explore'])->name('explore');
+Route::post('/sendmessage', [HomeController::class, 'sendMessage'])->name('sendMessage');
+Route::get('/product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
+Route::get('/product-catalog/{id}/{slug}', [HomeController::class, 'productCatalog'])->name('productCatalog');
+
 
 
 Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminHome')->middleware('auth');
