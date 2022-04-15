@@ -2,7 +2,7 @@
  <div class="header-navigation">
     <ul>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="{{ route() }}">
+        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
           Woman
         </a>
 
@@ -94,7 +94,8 @@
           </li>
         </ul>
       </li>
-      <li><a href="shop-item.html">Kids</a></li>
+      <li><a href="{{ route('aboutus') }}">About</a></li>
+      <li><a href="{{ route('contact') }}">Contact</a></li>
       <li class="dropdown dropdown100 nav-catalogue">
         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
           New
@@ -147,33 +148,6 @@
               </div>
             </div>
           </li>
-        </ul>
-      </li>
-      <li class="dropdown active">
-        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-          Pages
-
-        </a>
-
-        <ul class="dropdown-menu">
-          <li><a href="shop-index.html">Home Default</a></li>
-          <li class="active"><a href="shop-index-header-fix.html">Home Header Fixed</a></li>
-          <li><a href="shop-index-light-footer.html">Home Light Footer</a></li>
-          <li><a href="shop-product-list.html">Product List</a></li>
-          <li><a href="shop-search-result.html">Search Result</a></li>
-          <li><a href="shop-item.html">Product Page</a></li>
-          <li><a href="shop-shopping-cart-null.html">Shopping Cart (Null Cart)</a></li>
-          <li><a href="shop-shopping-cart.html">Shopping Cart</a></li>
-          <li><a href="shop-checkout.html">Checkout</a></li>
-          <li><a href="shop-about.html">About</a></li>
-          <li><a href="shop-contacts.html">Contacts</a></li>
-          <li><a href="shop-account.html">My account</a></li>
-          <li><a href="shop-wishlist.html">My Wish List</a></li>
-          <li><a href="shop-goods-compare.html">Product Comparison</a></li>
-          <li><a href="shop-standart-forms.html">Standart Forms</a></li>
-          <li><a href="shop-faq.html">FAQ</a></li>
-          <li><a href="shop-privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="shop-terms-conditions-page.html">Terms &amp; Conditions</a></li>
         </ul>
       </li>
 
