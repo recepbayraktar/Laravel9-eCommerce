@@ -34,12 +34,6 @@ Route::post('/admin/logincheck', [App\Http\Controllers\Admin\HomeController::cla
 Route::get('/admin/logout', [App\Http\Controllers\Admin\HomeController::class, 'logout'])->name('adminLogout');
 
 
-Route::middleware('auth')->prefix('myaccount')->group(function (){
-
-    Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('myAccount');
-
-});
-
 Route::middleware('auth')->prefix('user')->namespace('user')->group(function (){
 
 

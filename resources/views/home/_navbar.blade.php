@@ -4,7 +4,6 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="{{ route() }}">
           Woman
-
         </a>
 
         <!-- BEGIN DROPDOWN MENU -->
