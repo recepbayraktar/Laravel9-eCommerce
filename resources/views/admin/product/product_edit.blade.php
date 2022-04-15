@@ -35,10 +35,10 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">image</label>
-      <input value="{{ $data->image }}" type="file" class="form-control" name="image"  >
+      <input value="{{ Storage::url($data->image)  }}" type="file" class="form-control" name="image"  >
       @if ($data->image)
       <img src="{{ Storage::url($data->image) }}" height="30" >
-    @endif
+      @endif
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Example select</label>

@@ -3,16 +3,18 @@
 @endphp
 
 @foreach ($parentCategories as $rs)
-    <li class="has-megasubmenu">
-       <a class="dropdown-item" href="{{ route('productCatalog', ['id' => $rs->id , 'slug' => $rs->title]) }}"> {{ $rs->title }} </a>
 
-           <div class="megasubmenu dropdown-menu">
-               <div class="row">
-                @if (count($rs->children))
-                    @include('home._category_tree',['children' => $rs->children])
-                </div><!-- end row -->
-                @endif
-            </div>
+<li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="">
+        {{ $rs->title }}
+      </a>
 
-    </li>
+      <ul class="dropdown-menu">
+        <!-- BEGIN DROPDOWN MENU -->
+        @if (count($rs->children))
+                @include('home._category_tree',['children' => $rs->children])
+        @endif
+      <!-- END DROPDOWN MENU -->
+      </ul>
+</li>
 @endforeach

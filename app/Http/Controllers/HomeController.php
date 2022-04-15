@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Message;
 use App\Models\Setting;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -15,9 +16,14 @@ class HomeController extends Controller
         return Category::where('parent_id', '=', 0)->with('children')->get();
     }
 
+    public function categoryProducts($id,$slug){
+        $dataList = Product::where('category_id',$id)->get();
+        $data = Category::find($id);
+        return view('home.category_products',['dataList' => $dataList, 'data' => $data]);
+    }
+
 
     public function index(){
-
         return view(view: 'home.index');
     }
 

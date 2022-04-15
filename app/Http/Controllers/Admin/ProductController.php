@@ -49,6 +49,7 @@ class ProductController extends Controller
         $data->keywords = request()->input('keywords');
         $data->price = request()->input('price');
         $data->user_id = Auth::id();
+        $data->category_id = request()->input('category_id');
         $data->image = Storage::putFile('images', $request->file('image'));
 
         $data->save();
@@ -75,6 +76,7 @@ class ProductController extends Controller
         $data->detail = request()->input('detail');
         $data->keywords = request()->input('keywords');
         $data->price = request()->input('price');
+        $data->category_id = request()->input('category_id');
         $data->user_id = Auth::id();
         $data->save();
         return redirect()->route('adminProduct');

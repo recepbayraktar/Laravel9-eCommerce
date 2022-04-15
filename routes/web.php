@@ -25,6 +25,9 @@ Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/explore', [HomeController::class, 'explore'])->name('explore');
 Route::post('/sendmessage', [HomeController::class, 'sendMessage'])->name('sendMessage');
+Route::get('/product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
+Route::get('/categoryproducts/{id}/{slug}', [HomeController::class, 'categoryproducts'])->name('categoryProducts');
+
 
 
 

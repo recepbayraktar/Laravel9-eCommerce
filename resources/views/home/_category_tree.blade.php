@@ -1,15 +1,13 @@
 @foreach ($children as $subcategory)
-    <div class="col-6">
-        <ul class="list-unstyled">
+        <li>
             @if (count($subcategory->children))
-                <li><a href="{{ route('productCatalog', ['id' => $rs->id , 'slug' => $rs->title]) }}">{{ $subcategory->title }}</a></li>
-                <ul class="list-unstyled">
-                    {{-- @include('home._category_tree') --}}
+
+                <li><a href="{{ route('categoryProducts', ['id' => $subcategory->id , 'slug' => $subcategory->title]) }}">{{ $subcategory->title }}</a></li>
+                <ul class=" dropdown-menu dropright">
+                        @include('home._category_tree', ['children' => $subcategory->children])
                 </ul>
             @else
-                <li><a href="{{ route('productCatalog', ['id' => $rs->id , 'slug' => $rs->title]) }}">{{ $subcategory->title }}</a></li>
+                <li><a href="{{ route('categoryProducts', ['id' => $subcategory->id , 'slug' => $subcategory->title]) }}">{{ $subcategory->title }}</a></li>
             @endif
-
-        </ul>
-    </div>
+        </li>
 @endforeach
