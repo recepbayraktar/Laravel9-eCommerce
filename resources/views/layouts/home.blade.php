@@ -1,67 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head BEGIN -->
 <head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>Woods</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/home/css/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/home/css/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="{{ asset('assets') }}/home/css/responsive.css">
-<!-- fevicon -->
-<link rel="icon" href="{{ asset('assets') }}/home/images/fevicon.png" type="image/gif" />
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="{{ asset('assets') }}/home/css/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <title>Metronic Shop UI</title>
 
-<!-- owl stylesheets -->
-<link rel="stylesheet" href="{{ asset('assets') }}/home/css/owl.carousel.min.css">
-<link rel="stylesheet" href="{{ asset('assets') }}/home/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-@yield('javascript')
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta content="Metronic Shop UI description" name="description">
+  <meta content="Metronic Shop UI keywords" name="keywords">
+  <meta content="keenthemes" name="author">
+
+  <meta property="og:site_name" content="-CUSTOMER VALUE-">
+  <meta property="og:title" content="-CUSTOMER VALUE-">
+  <meta property="og:description" content="-CUSTOMER VALUE-">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="-CUSTOMER VALUE-"><!-- link to image for socio -->
+  <meta property="og:url" content="-CUSTOMER VALUE-">
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Fonts START -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"><!--- fonts for slider on the index page -->
+  <!-- Fonts END -->
+
+  <!-- Global styles START -->
+  <link href="{{ asset('assets') }}/home/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{{ asset('assets') }}/home/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Global styles END -->
+
+  <!-- Page level plugin styles START -->
+  <link href="{{ asset('assets') }}/home/pages/css/animate.css" rel="stylesheet">
+  <link href="{{ asset('assets') }}/home/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+  <link href="{{ asset('assets') }}/home/plugins/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link href="{{ asset('assets') }}/home/pages/css/components.css" rel="stylesheet">
+  <link href="{{ asset('assets') }}/home/pages/css/slider.css" rel="stylesheet">
+  <link href="{{ asset('assets') }}/home/pages/css/style-shop.css" rel="stylesheet" type="text/css">
+  <link href="{{ asset('assets') }}/home/corporate/css/style.css" rel="stylesheet">
+  <link href="{{ asset('assets') }}/home/corporate/css/style-responsive.css" rel="stylesheet">
+  <link href="{{ asset('assets') }}/home/corporate/css/themes/red.css" rel="stylesheet" id="style-color">
+  <link href="{{ asset('assets') }}/home/corporate/css/custom.css" rel="stylesheet">
+  <!-- Theme styles END -->
 </head>
-    <div class="header_section">
-        @include('home._navbar')
-        @include('home._header')
-    </div>
+<!-- Head END -->
+<body class="ecommerce">
+    @yield('preHeader')
+
+    @yield('header')
+    @yield('navbar')
+
+    @yield('slider')
     @yield('content')
-    @include('home._footer')
+    @yield('footer')
 
 
-    <!-- Javascript files-->
-    <script src="{{ asset('assets') }}/home/js/jquery.min.js"></script>
-    <script src="{{ asset('assets') }}/home/js/popper.min.js"></script>
-    <script src="{{ asset('assets') }}/home/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('assets') }}/home/js/jquery-3.0.0.min.js"></script>
-    <script src="{{ asset('assets') }}/home/js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="{{ asset('assets') }}/home/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="{{ asset('assets') }}/home/js/custom.js"></script>
-    <!-- javascript -->
-    <script src="{{ asset('assets') }}/home/js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-       $(document).ready(function(){
-       $(".fancybox").fancybox({
-       openEffect: "none",
-       closeEffect: "none"
-       });
-       </script>
+    <script src="{{ asset('assets') }}/home/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ asset('assets') }}/home/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="{{ asset('assets') }}/home/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ asset('assets') }}/home/corporate/scripts/back-to-top.js" type="text/javascript"></script>
+    <script src="{{ asset('assets') }}/home/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
 
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script src="{{ asset('assets') }}/home/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+    <script src="{{ asset('assets') }}/home/plugins/owl.carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
+    <script src='{{ asset('assets') }}/home/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
+    <script src="{{ asset('assets') }}/home/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+
+    <script src="{{ asset('assets') }}/home/corporate/scripts/layout.js" type="text/javascript"></script>
+    <script src="{{ asset('assets') }}/home/pages/scripts/bs-carousel.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            Layout.init();
+            Layout.initOWL();
+            Layout.initImageZoom();
+            Layout.initTouchspin();
+            Layout.initTwitter();
+
+            Layout.initFixHeaderWithPreHeader();
+            Layout.initNavScrolling();
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
 
 
 </body>

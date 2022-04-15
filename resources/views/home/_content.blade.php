@@ -1,161 +1,380 @@
-<!-- about section start -->
-<div class="layout_padding about_section ">
+<div class="main">
     <div class="container">
-        <h1 class="about_taital">About <span style="background-color: #fee421; color: #fff; padding: 0px 5px;">Us</span></h1>
-        <p class="market_text">making it look like readable English. Many desktop publishing</p>
-        <div class="about_bg">
-            <div class="row">
-                <div class="col-md-8">
-                    <p class="about_long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution o
-                    f letters, a
-                    s opposed to using 'Content h
-                    ere, content here', making it look like readable English. Many desktop publishing packages and web</p>
-                    <button class="about_bt">ABOUT MORE</button>
+      <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+      <div class="row margin-bottom-40">
+        <!-- BEGIN SALE PRODUCT -->
+        <div class="col-md-12 sale-product">
+          <h2>New Arrivals</h2>
+          <div class="owl-carousel owl-carousel5">
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="table_img"><img src="{{ asset('assets') }}/home/images/about-img.png"></div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="sticker sticker-sale"></div>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
                 </div>
+                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- about section end -->
-<!-- our furniture section start -->
-<div class="our_furniture_section layout_padding">
-    <div class="container">
-        <h1 class="about_taital">Our <span style="background-color: #fee421; color: #fff; padding: 0px 5px;">Funitures</span></h1>
-        <p class="market_text">page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution o</p>
-    </div>
-</div>
-<div class="our_section_2">
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="{{ asset('assets') }}/home/images_bt">
-                <div class="image_left">
-                    <button class="seemore_bt">SEE MORE</button>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/model6.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/model6.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
                 </div>
-                <div class="image_right">
-                    <div class="image_9"><img src="{{ asset('assets') }}/home/images/img-9.png"></div>
-                    <div class="new_text">NEW DESIGN</div>
-                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="image"><img src="{{ asset('assets') }}/home/images/img-4.png"></div>
-        </div>
-        <div class="col-sm-3">
-            <div class="image"><img src="{{ asset('assets') }}/home/images/img-5.png"></div>
-        </div>
-    </div>
-    <div class="{{ asset('assets') }}/home/images_section_2">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="image_6"><img src="{{ asset('assets') }}/home/images/img-6.png"></div>
-            </div>
-            <div class="col-sm-4">
-                <div class="image_6"><img src="{{ asset('assets') }}/home/images/img-7.png"></div>
-            </div>
-            <div class="col-sm-4">
-                <div class="image_6"><img src="{{ asset('assets') }}/home/images/img-8.png"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- our furniture section end -->
-<!-- testi monial section start -->	
-<div class="testi_monial_section layout_padding">
-    <div class="container">
-       <div id="my_carousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <h1 class="testi_monila_text">Testi <span style="background-color: #fee421; color: #fff; padding: 0px 5px;">Monial</span></h1>
-        <div class="testimonila_inner">
-            <div class="testing_img"><img src="{{ asset('assets') }}/home/images/img-10.png"></div>
-            <h2 class="helina_text">Helina</h2>
-            <p class="dolor_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-        </div>
-</div>
-<div class="carousel-item">
-  <h1 class="testi_monila_text">Testi <span style="background-color: #fee421; color: #fff; padding: 0px 5px;">Monial</span></h1>
-        <div class="testimonila_inner">
-            <div class="testing_img"><img src="{{ asset('assets') }}/home/images/img-10.png"></div>
-            <h2 class="helina_text">Helina</h2>
-            <p class="dolor_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-        </div>
-</div>
-<div class="carousel-item">
-  <h1 class="testi_monila_text">Testi <span style="background-color: #fee421; color: #fff; padding: 0px 5px;">Monial</span></h1>
-        <div class="testimonila_inner">
-            <div class="testing_img"><img src="{{ asset('assets') }}/home/images/img-10.png"></div>
-            <h2 class="helina_text">Helina</h2>
-            <p class="dolor_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-        </div>
-</div>
-</div>
-<a class="carousel-control-prev" href="#my_carousel" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#my_carousel" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Next</span>
-</a>
-</div>
-    </div>
-</div>
-<!-- testi monial section end -->
-<!-- contact section start -->	
-<div class="layout_padding contact_section">
-    <div class="container">
-        <div class="contact_section_inner">
-            <div class="contact_main">
-                <h1 class="contact_text">Contact Us</h1>
-                <div class="input_main">
-                    <div class="row">
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="form-group">
-                               <input type="text" class="email-bt" placeholder="Name" name="Email">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="form-group">
-                               <input type="text" class="email-bt" placeholder="Phone Number" name="Email">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="form-group">
-                               <input type="text" class="email-bt" placeholder="Email" name="Email">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><img src="{{ asset('assets') }}/home/images/fb-icon.png"></li>
-                                    <li><img src="{{ asset('assets') }}/home/images/twitter-icon.png"></li>
-                                    <li><img src="{{ asset('assets') }}/home/images/in-icon.png"></li>
-                                    <li><img src="{{ asset('assets') }}/home/images/instagram-icon.png"></li>
-                                </ul>
-                            </div>
-                        </div>
+            <div>
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="{{ asset('assets') }}/home/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <div>
+                      <a href="{{ asset('assets') }}/home/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
-                </div>
-                <div class="massage_box">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <form action="/action_page.php">
-                            <div class="form-group">
-                              <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="text"></textarea>
-                            </div>
-                        </form>
-                        </div>
-                        <div class="col-sm-4">
-                            <button class="send_bt">Send</button>
-                        </div>
-                    </div>
+                  </div>
+                  <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
+                  <div class="pi-price">$29.00</div>
+                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                  <div class="sticker sticker-new"></div>
                 </div>
             </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/model5.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+        <!-- END SALE PRODUCT -->
+      </div>
+      <!-- END SALE PRODUCT & NEW ARRIVALS -->
 
-<!-- contact section end -->
+      <!-- BEGIN SIDEBAR & CONTENT -->
+      <div class="row margin-bottom-40 ">
+        <!-- BEGIN SIDEBAR -->
+        <div class="sidebar col-md-3 col-sm-4">
+          <ul class="list-group margin-bottom-25 sidebar-menu">
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Ladies</a></li>
+            <li class="list-group-item clearfix dropdown">
+              <a href="shop-product-list.html">
+                <i class="fa fa-angle-right"></i>
+                Mens
+
+              </a>
+              <ul class="dropdown-menu">
+                <li class="list-group-item dropdown clearfix">
+                  <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Shoes </a>
+                    <ul class="dropdown-menu">
+                      <li class="list-group-item dropdown clearfix">
+                        <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 1</a></li>
+                          <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 2</a></li>
+                        </ul>
+                      </li>
+                      <li class="list-group-item dropdown clearfix">
+                        <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport  </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 1</a></li>
+                          <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 2</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                </li>
+                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Trainers</a></li>
+                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Jeans</a></li>
+                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinos</a></li>
+                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> T-Shirts</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Kids</a></li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Accessories</a></li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sports</a></li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Brands</a></li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Electronics</a></li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Home & Garden</a></li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Custom Link</a></li>
+          </ul>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="col-md-9 col-sm-8">
+          <h2>Three items</h2>
+          <div class="owl-carousel owl-carousel3">
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="sticker sticker-new"></div>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="sticker sticker-sale"></div>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END CONTENT -->
+      </div>
+      <!-- END SIDEBAR & CONTENT -->
+
+      <!-- BEGIN TWO PRODUCTS & PROMO -->
+      <div class="row margin-bottom-35 ">
+        <!-- BEGIN TWO PRODUCTS -->
+        <div class="col-md-6 two-items-bottom-items">
+          <h2>Two items</h2>
+          <div class="owl-carousel owl-carousel2">
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+            <div>
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img src="{{ asset('assets') }}/home/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <div>
+                    <a href="{{ asset('assets') }}/home/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                  </div>
+                </div>
+                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                <div class="pi-price">$29.00</div>
+                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END TWO PRODUCTS -->
+        <!-- BEGIN PROMO -->
+        <div class="col-md-6 shop-index-carousel">
+          <div class="content-slider">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="{{ asset('assets') }}/home/pages/img/index-sliders/slide1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                </div>
+                <div class="item">
+                  <img src="{{ asset('assets') }}/home/pages/img/index-sliders/slide2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                </div>
+                <div class="item">
+                  <img src="{{ asset('assets') }}/home/pages/img/index-sliders/slide3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END PROMO -->
+      </div>
+      <!-- END TWO PRODUCTS & PROMO -->
+    </div>
+  </div>

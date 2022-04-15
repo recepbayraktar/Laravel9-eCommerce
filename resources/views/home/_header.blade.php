@@ -1,33 +1,86 @@
-@php
-    $setting = App\Http\Controllers\HomeController::getSetting();
-@endphp
+<div class="header">
+    <div class="container">
+      <a class="site-logo" href="shop-index.html"><img src="{{ asset('assets') }}/home/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
 
-<div id="carouselExampleControls" class="carousel slide mt-5" data-ride="carousel">
-        <div class="carousel-inner">
-            @foreach ($slider as $rs)
-            <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <img class="d-block rounded border shadow ml-auto" style="height: 400px; width: 800px;" src="{{ Storage::url($rs->image)  }}" alt="First slide">
-                    </div>
-                    <div class="col-sm-2">
-                        <h1>{{ $rs->title }}</h1>
-                        <a href="{{ route('aboutus', ['id' => $rs->id, 'slug' => $rs->slug]) }}">link</a>
-                    </div>
-                    <div class="col-sm-2">
-                    </div>
-                </div>
-            </div>
-            @endforeach
+      <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+      <!-- BEGIN CART -->
+      <div class="top-cart-block">
+        <div class="top-cart-info">
+          <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
+          <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+        <i class="fa fa-shopping-cart"></i>
 
+        <div class="top-cart-content-wrapper">
+          <div class="top-cart-content">
+            <ul class="scroller" style="height: 250px;">
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+              <li>
+                <a href="shop-item.html"><img src="{{ asset('assets') }}/home/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                <span class="cart-content-count">x 1</span>
+                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
+                <em>$1230</em>
+                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+              </li>
+            </ul>
+            <div class="text-right">
+              <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
+              <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END CART -->
 
-</div>
+      @include('home._navbar')
+    </div>
+  </div>
