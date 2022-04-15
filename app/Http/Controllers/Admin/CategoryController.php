@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
-use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class CategoryController extends Controller
 {
@@ -14,9 +14,18 @@ class CategoryController extends Controller
          'getParentsTree'
      ];
 
-    public function create(){
-        return Controller::insert(new Category(), route('adminCategory'));
-    }
+     public function create(Request $request)
+     {
+         DB::table('categories')->insert([
+             'slug' => request()->input('email'),
+             'title' => request()->input('title'),
+             'description' => request()->input('description'),
+             'keywords' => request()->input('keywords'),
+             'parent_id' => request()->input('parent_id')
+
+         ]);
+         return redirect(route('adminCategory'));
+     }
 
     public static function getParentsTree($category,$title){
         if ($category->parent_id == 0) {
@@ -53,7 +62,13 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category,$id)
     {
-        return Controller::insert(new Category(), route('adminCategory'),$id);
+       $data = Category::find($id);
+       $data->title = $request->input('title');
+       $data->keywords = $request->input('keywords');
+       $data->description = $request->input('description');
+       $data->slug = $request->input('slug');
+        $data->save();
+        return redirect()->route('adminCategory');
     }
 
     public function destroy(Request $request,$id)
@@ -62,3 +77,5 @@ class CategoryController extends Controller
         return redirect()->route('adminCategory');
     }
 }
+
+

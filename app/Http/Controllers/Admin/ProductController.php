@@ -7,12 +7,20 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Schema;
+use App\Models\Category;
+
 
 class ProductController extends Controller
 {
+    protected $appends = [
+        'getParentsTree'
+    ];
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
     public function index()
     {
@@ -21,11 +29,6 @@ class ProductController extends Controller
         return view('admin.product.product', ['dataList' => $dataList]);
     }
 
-    public function create(){
-        return Controller::insert(new Product, route('adminCategory'));
-    }
-
-
     public function add()
     {
         $dataList = Category::All();
@@ -33,11 +36,48 @@ class ProductController extends Controller
         return view('admin.product.product_add',['dataList' => $dataList]);
     }
 
+    public function create(Request $request)
+    {
+        $data = new Product;
+        $data->slug = request()->input('slug');
+        $data->title = request()->input('title');
+        $data->description = request()->input('description');
+        $data->image = request()->input('image');
+        $data->tax = request()->input('tax');
+        $data->quantity = request()->input('quantity');
+        $data->detail = request()->input('detail');
+        $data->keywords = request()->input('keywords');
+        $data->price = request()->input('price');
+        $data->user_id = Auth::id();
+        $data->image = Storage::putFile('images', $request->file('image'));
+
+        $data->save();
+
+        return redirect(route('adminProduct'));
+    }
+
     public function edit(Product $product,$id)
     {
         $data = Product::find($id);
-        $dataList = Category::with('children')->get();
+        $dataList = Category::All();
         return view('admin.product.product_edit', [ 'data' => $data, 'dataList' => $dataList]);
+    }
+
+    public function update(Request $request, Product $product,$id)
+    {
+        $data = Product::find($id);
+        $data->slug = request()->input('slug');
+        $data->title = request()->input('title');
+        $data->description = request()->input('description');
+        $data->image = request()->input('image');
+        $data->tax = request()->input('tax');
+        $data->quantity = request()->input('quantity');
+        $data->detail = request()->input('detail');
+        $data->keywords = request()->input('keywords');
+        $data->price = request()->input('price');
+        $data->user_id = Auth::id();
+        $data->save();
+        return redirect()->route('adminProduct');
     }
 
     public function destroy(Product $product,$id)
@@ -46,7 +86,4 @@ class ProductController extends Controller
         return redirect()->route('adminProduct');
     }
 
-    public function update($id){
-        return Controller::insert(new Product(), route('adminCategory'),$id);
-    }
 }

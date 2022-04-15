@@ -14,10 +14,11 @@
       <input type="text" class="form-control" name="keywords"  >
     </div>
     <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
+        <label for="exampleFormControlSelect1">main category</label>
         <select name="parent_id" class="form-control" id="exampleFormControlSelect1">
+          <option value="0" selected >Main category</option>
           @foreach ($dataList as $rs)
-          <option value="{{ $rs->id }}"> {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }} </option>
+          <option  value="{{ $rs->id }}"> {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }} </option>
           @endforeach
         </select>
       </div>

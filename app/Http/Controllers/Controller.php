@@ -10,39 +10,13 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Routing\Route;
-use phpDocumentor\Reflection\Types\Null_;
+use Illuminate\Database\Eloquent\Builder;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function __construct()
-    {
-        $this->model = null;
-        $this->route = redirect()->back();
 
-    }
-    public function insert( Model $model, $route = null,$id = null){
 
-        $columns = Schema::getColumnListing($this->model->getTable());
-        if (isset($id)) {
-            $this->model = $this->model->where('id', '= ', $id);
-        }
-
-        foreach ($columns as $column) {
-            if( request()->input($column) != null){
-                $this->model->$column = request()->input($column);
-            }
-        }
-
-        $this->model->save();
-
-        if ($route != null) {
-            return redirect($route);
-        }
-        else {
-            return $this->route;
-        }
-    }
 
 }

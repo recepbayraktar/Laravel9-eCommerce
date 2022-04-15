@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Message;
 use App\Models\Setting;
-use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -16,26 +15,49 @@ class HomeController extends Controller
         return Category::where('parent_id', '=', 0)->with('children')->get();
     }
 
+
     public function index(){
-        $setting = Setting::first();
-        $slider = Product::select('title','image','price', 'id', 'slug')->limit(4)->get();
 
-        $data= [
-            'setting' => $setting,
-            'slider' => $slider
-        ];
-        return view('home.index', $data);
+        return view(view: 'home.index');
     }
 
-    public function product($id,$slug){
-        $data = Product::find($id);
+    public function aboutus(){
 
-        exit();
+        return view(view: 'home.aboutus');
     }
 
-    public function productCatalog($id,$slug){
-        $data = Product::find($id);
-        return view('home.product_catalog', ['data' => $data]);
+    public function contact(){
+
+        return view(view: 'home.contact');
+    }
+
+    public function faq(){
+
+        return view(view: 'home.faq');
+    }
+
+    public function explore(){
+
+        return view(view: 'home.explore');
+    }
+
+    public function sendMessage(Request $request){
+
+        $data = new Message();
+
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $data->subject = $request->input('subject');
+        $data->message = $request->input('message');
+        $data->note = $request->input('note');
+
+        $data->save();
+        return redirect()->route('contact');
+    }
+
+    public static function getSetting(){
+        return Setting::first();
     }
 
     public function login(){
@@ -52,7 +74,7 @@ class HomeController extends Controller
                 return redirect()->intended('home');
             }
 
-            return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+            return redirect()->intended('home')->withErrors(['email' => 'The provided credentials do not match our records.']);
         }
     }
 
