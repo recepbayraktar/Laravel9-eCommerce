@@ -2,7 +2,7 @@
  <div class="header-navigation">
     <ul>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+        <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="{{ route() }}">
           Woman
 
         </a>

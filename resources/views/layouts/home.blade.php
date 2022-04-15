@@ -49,14 +49,13 @@
 </head>
 <!-- Head END -->
 <body class="ecommerce">
-    @yield('preHeader')
+    @include('home._preHeader')
 
-    @yield('header')
-    @yield('navbar')
+    @include('home._header')
 
-    @yield('slider')
+    @yield('home._slider')
     @yield('content')
-    @yield('footer')
+    @include('home._footer')
 
 
     <script src="{{ asset('assets') }}/home/plugins/jquery.min.js" type="text/javascript"></script>
