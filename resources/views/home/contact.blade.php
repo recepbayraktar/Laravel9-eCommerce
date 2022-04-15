@@ -64,14 +64,15 @@
                     <p>Lorem ipsum dolor sit amet, Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat consectetuer adipiscing elit, sed diam nonummy nibh euismod tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
 
                     <!-- BEGIN FORM-->
-                    <form action="{{  }}" class="default-form" role="form">
+                    <form action="{{ route('sendMessage') }}" method="POST" class="default-form" role="form">
+                        @csrf
                       <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name">
+                        <input name="name" type="text" class="form-control" id="name">
                       </div>
                       <div class="form-group">
                         <label for="email">Email <span class="require">*</span></label>
-                        <input type="text" class="form-control" id="email">
+                        <input name="email" type="text" class="form-control" id="email">
                       </div>
                       <div class="form-group">
                         <label for="subject">Subject</label>
@@ -79,7 +80,7 @@
                       </div>
                       <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea class="form-control" rows="8" id="message"></textarea>
+                        <textarea name="message" class="form-control" rows="8" id="message"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="name">phone</label>
