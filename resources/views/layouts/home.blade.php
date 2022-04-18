@@ -53,11 +53,11 @@
 
     @include('home._header')
 
-    @yield('home._slider')
+    @yield('slider')
     @yield('content')
     @include('home._footer')
 
-
+    @yield('javascript')
     <script src="{{ asset('assets') }}/home/plugins/jquery.min.js" type="text/javascript"></script>
     <script src="{{ asset('assets') }}/home/plugins/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="{{ asset('assets') }}/home/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

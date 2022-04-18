@@ -28,6 +28,11 @@ Route::post('/sendmessage', [HomeController::class, 'sendMessage'])->name('sendM
 Route::get('/product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
 Route::get('/categoryproducts/{id}/{slug}', [HomeController::class, 'categoryproducts'])->name('categoryProducts');
 
+Route::get('/addtocart/{id}', [HomeController::class, 'addToCart'])->name('addToCart');
+
+Route::post('/getproduct', [HomeController::class, 'getProduct'])->name('getProduct');
+Route::get('/productlist/{search}', [HomeController::class, 'productList'])->name('productList');
+
 
 
 
@@ -41,6 +46,16 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function (){
 
 
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->name('profile.show');
+
+});
+
+
+Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function (){
+
+
+    Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('profile.show');
+    Route::get('/myreviews', [App\Http\Controllers\UserController::class, 'myReviews'])->name('myReviews');
+    Route::get('/delete', [App\Http\Controllers\UserController::class, 'destroyReview'])->name('destroyReview');
 
 });
 
@@ -90,6 +105,29 @@ Route::middleware('auth')->prefix('admin')->group(function (){
         Route::get('show',[App\Http\Controllers\Admin\MessageController::class,'show'])->name('adminMessageShow');
         Route::get('delete/{id}',[App\Http\Controllers\Admin\MessageController::class,'destroy'])->name('adminMessageDestroy');
     });
+
+
+    Route::prefix('review')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\Admin\ReviewController::class,'index'])->name('adminReview');
+        Route::post('update/{id}',[App\Http\Controllers\Admin\ReviewController::class,'update'])->name('adminReviewUpdate');
+        Route::get('edit/{id}',[App\Http\Controllers\Admin\ReviewController::class,'edit'])->name('adminReviewEdit');
+        Route::get('delete/{id}',[App\Http\Controllers\Admin\ReviewController::class,'destroy'])->name('adminReviewDestroy');
+    });
+
+
+    Route::prefix('faq')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\Admin\FaqController::class,'index'])->name('adminFaq');
+        Route::post('create',[App\Http\Controllers\Admin\FaqController::class,'create'])->name('adminFaqCreate');
+        Route::get('add',[App\Http\Controllers\Admin\FaqController::class,'add'])->name('adminFaqAdd');
+        Route::get('edit/{id}',[App\Http\Controllers\Admin\FaqController::class,'edit'])->name('adminFaqEdit');
+        Route::post('update/{id}',[App\Http\Controllers\Admin\FaqController::class,'update'])->name('adminFaqUpdate');
+        Route::get('show',[App\Http\Controllers\Admin\FaqController::class,'show'])->name('adminFaqShow');
+        Route::get('delete/{id}',[App\Http\Controllers\Admin\FaqController::class,'destroy'])->name('adminFaqDestroy');
+    });
+
+
 
 
 });

@@ -58,10 +58,10 @@
       <textarea id="references" name="references">{{ $data->references }}</textarea>
 
       <label for="exampleFormControlInput1">contact</label>
-      <textarea id="contact" name="contact">{{ $data->references }}</textarea>
+      <textarea id="contact" name="contact">{{ $data->contact }}</textarea>
       
       <label for="exampleFormControlInput1">aboutus</label>
-      <textarea id="aboutus" name="aboutus">{{ $data->references }}</textarea>
+      <textarea id="aboutus" name="aboutus">{{ $data->aboutus }}</textarea>
       <script>
         $('#references').summernote();
         $('#aboutus').summernote();

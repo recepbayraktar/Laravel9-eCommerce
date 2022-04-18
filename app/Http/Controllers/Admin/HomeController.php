@@ -11,8 +11,7 @@ use App\Models\Setting;
 class HomeController extends Controller
 {
     public function index(){
-        $setting = Setting::first();
-        $slider = Product::select('title','image','price')->limit(4)->get();
+
         return view(view: 'admin.index');
     }
 
