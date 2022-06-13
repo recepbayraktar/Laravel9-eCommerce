@@ -110,10 +110,12 @@
                   </div>
                 </div>
                 <div class="product-page-cart">
-                  <div class="product-quantity">
-                      <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
-                  </div>
-                  <button class="btn btn-primary" href="{{ route('addToCart', ['id' => $data->id]) }}" type="submit">Add to cart</button>
+                 <form action="{{ route('userShopcartAdd', ['id' => $data->id]) }}">
+                    <div class="product-quantity">
+                        <input id="product-quantity" name="quantity" type="text" value="1" max="{{ $data->quantity }}" readonly class="form-control input-sm">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Add to cart</button>
+                 </form>
                 </div>
                 <div class="review">
                   <input type="range" value="4" step="0.25" id="backing4">

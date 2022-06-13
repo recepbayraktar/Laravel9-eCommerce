@@ -152,7 +152,7 @@
                   </div>
                   <h3><a href="shop-item.html">{{ $rs->title }}</a></h3>
                   <div class="pi-price">{{ $rs->price }}</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                  <a href="{{ route('addToCart', ['id' => $rs->id]) }}" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
               <!-- PRODUCT ITEM END -->

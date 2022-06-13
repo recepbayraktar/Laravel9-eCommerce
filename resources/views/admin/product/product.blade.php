@@ -29,7 +29,7 @@
                       <th scope="row">1</th>
                       <td><li> {{$data->title}} </li></td>
                       <td>{{ $data->slug }}</td>
-                      <td> {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data, $data->title) }}</td>
+                      <td> {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data->category, $data->category->title) }}</td>
                       <td>{{$data->price}}</td>
                       <td>{{$data->quantity}}</td>
                       <td>{{$data->status}}</td>

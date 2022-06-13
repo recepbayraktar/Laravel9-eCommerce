@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
-use App\Models\user;
+use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,22 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('home.user_profile');
+        return view('home.checkout');
     }
 
-
-    public function myReviews()
-    {
-        $dataList = Review::where('user_id', '=', Auth::user()->id)->get();
-        return view('home.user_reviews', ['dataList' => $dataList]);
-    }
-
-    public function destroyReview($id)
-    {
-        $data = Review::find($id);
-        $data->delete();
-        return redirect()->back();
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -56,10 +41,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(user $user)
+    public function show(Order $order)
     {
         //
     }
@@ -67,10 +52,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(user $user)
+    public function edit(Order $order)
     {
         //
     }
@@ -79,10 +64,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, user $user)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -90,10 +75,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(user $user)
+    public function destroy(Order $order)
     {
         //
     }

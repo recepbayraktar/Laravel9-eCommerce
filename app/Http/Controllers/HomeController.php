@@ -30,9 +30,9 @@ class HomeController extends Controller
     public function index(){
         $all = Product::all();
         $setting = Setting::first();
-        $slider = Product::select('title','image','price')->limit(4)->get();
-        $daily = Product::select('title','image','price')->limit(4)->inRandomOrder()->get();
-        $last = Product::select('title','image','price')->limit(4)->orderByDesc('id')->get();
+        $slider = Product::select()->limit(4)->get();
+        $daily = Product::select()->limit(4)->inRandomOrder()->get();
+        $last = Product::select()->limit(4)->orderByDesc('id')->get();
         $dataList = ['setting' => $setting, 'slider' => $slider, 'daily' => $daily, 'last' => $last, 'all' => $all];
         return view('home.index',$dataList);
     }
@@ -96,7 +96,7 @@ class HomeController extends Controller
 
     public function faq(){
 
-        $data = Faq::all()->sortByDesc('position');
+        $data = Faq::all()->sortBy('position', true);
 
         return view('home.faq', ['data' => $data]);
     }

@@ -26,5 +26,9 @@
             </div>
         </div> <!-- END CONTENT -->
     </div>
+
+    @php
+        
+    @endphp
 @endsection
 

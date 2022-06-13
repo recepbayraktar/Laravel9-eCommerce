@@ -28,7 +28,6 @@ Route::post('/sendmessage', [HomeController::class, 'sendMessage'])->name('sendM
 Route::get('/product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
 Route::get('/categoryproducts/{id}/{slug}', [HomeController::class, 'categoryproducts'])->name('categoryProducts');
 
-Route::get('/addtocart/{id}', [HomeController::class, 'addToCart'])->name('addToCart');
 
 Route::post('/getproduct', [HomeController::class, 'getProduct'])->name('getProduct');
 Route::get('/productlist/{search}', [HomeController::class, 'productList'])->name('productList');
@@ -47,15 +46,55 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function (){
 
     Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->name('profile.show');
 
-});
+    Route::prefix('product')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\ProductController::class,'index'])->name('userProduct');
+        Route::post('create',[App\Http\Controllers\ProductController::class,'create'])->name('userProductCreate');
+        Route::get('add',[App\Http\Controllers\ProductController::class,'add'])->name('userProductAdd');
+        Route::get('edit/{id}',[App\Http\Controllers\ProductController::class,'edit'])->name('userProductEdit');
+        Route::post('update/{id}',[App\Http\Controllers\ProductController::class,'update'])->name('userProductUpdate');
+        Route::get('show',[App\Http\Controllers\ProductController::class,'show'])->name('userProductShow');
+        Route::get('delete/{id}',[App\Http\Controllers\ProductController::class,'destroy'])->name('userProductDestroy');
+    });
 
 
-Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function (){
+    Route::prefix('image')->group(function(){
+
+        Route::get('create/{product_id}',[App\Http\Controllers\ImageController::class,'create'])->name('userImageAdd');
+        Route::post('store/{product_id}',[App\Http\Controllers\ImageController::class,'store'])->name('userImageStore');
+        Route::get('show/{product_id}',[App\Http\Controllers\ImageController::class,'show'])->name('userImageShow');
+        Route::get('delete/{id}/{product_id}',[App\Http\Controllers\ImageController::class,'destroy'])->name('userImageDestroy');
+    });
+
+    Route::prefix('shopcart')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\ShopcartController::class,'index'])->name('userShopcart');
+        Route::get('add/{id}',[App\Http\Controllers\ShopcartController::class,'add'])->name('userShopcartAdd');
+        Route::post('update/{id}',[App\Http\Controllers\ShopcartController::class,'update'])->name('userShopcartUpdate');
+        Route::get('delete/{id}',[App\Http\Controllers\ShopcartController::class,'destroy'])->name('userShopcartDestroy');
+    });
+
+    Route::prefix('order')->group(function(){
+
+        Route::get('/',[App\Http\Controllers\OrderController::class,'index'])->name('userOrder');
+        Route::post('create',[App\Http\Controllers\OrderController::class,'create'])->name('userOrderCreate');
+        Route::get('add',[App\Http\Controllers\OrderController::class,'add'])->name('userOrderAdd');
+        Route::get('edit/{id}',[App\Http\Controllers\OrderController::class,'edit'])->name('userOrderEdit');
+        Route::post('update/{id}',[App\Http\Controllers\OrderController::class,'update'])->name('userOrderUpdate');
+        Route::get('show',[App\Http\Controllers\OrderController::class,'show'])->name('userOrderShow');
+        Route::get('delete/{id}',[App\Http\Controllers\OrderController::class,'destroy'])->name('userOrderDestroy');
+    });
 
 
     Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('profile.show');
     Route::get('/myreviews', [App\Http\Controllers\UserController::class, 'myReviews'])->name('myReviews');
-    Route::get('/delete', [App\Http\Controllers\UserController::class, 'destroyReview'])->name('destroyReview');
+    Route::get('/myreviews/delete/{id}', [App\Http\Controllers\UserController::class, 'destroyReview'])->name('destroyReview');
+
+
+});
+
+
+Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function (){
 
 });
 

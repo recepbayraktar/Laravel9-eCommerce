@@ -12,8 +12,8 @@
         <div class="carousel-inner" role="listbox">
             <!-- First slide -->
             <div style="background: url({{ asset('assets') }}/home/pages/img/shop-slider/slide1/bg.jpg);
-    background-size: cover;
-    background-position: center center;" class="item carousel-item-four active">
+            background-size: cover;
+            background-position: center center;" class="item carousel-item-four active">
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <h2 class="margin-bottom-20 animate-delay carousel-title-v3 border-bottom-title text-uppercase" data-animation="animated fadeInDown">
@@ -27,8 +27,8 @@
 
             <!-- Second slide -->
             <div style="background: url({{ asset('assets') }}/home/pages/img/shop-slider/slide2/bg.jpg);
-    background-size: cover;
-    background-position: center center;" class="item carousel-item-five">
+            background-size: cover;
+            background-position: center center;" class="item carousel-item-five">
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <h2 class="animate-delay carousel-title-v4" data-animation="animated fadeInDown">
@@ -48,8 +48,8 @@
 
             <!-- Third slide -->
             <div style="background: url({{ asset('assets') }}/home/pages/img/shop-slider/slide3/bg.jpg);
-    background-size: cover;
-    background-position: center center;" class="item carousel-item-six">
+            background-size: cover;
+            background-position: center center;" class="item carousel-item-six">
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <span class="carousel-subtitle-v3 margin-bottom-15" data-animation="animated fadeInDown">
@@ -67,8 +67,8 @@
 
             <!-- Fourth slide -->
             <div style="background: url({{ asset('assets') }}/home/pages/img/shop-slider/slide4/bg.jpg);
-    background-size: cover;
-    background-position: center center;" class="item carousel-item-seven">
+            background-size: cover;
+            background-position: center center;" class="item carousel-item-seven">
                <div class="center-block">
                     <div class="center-block-wrap">
                         <div class="center-block-body">

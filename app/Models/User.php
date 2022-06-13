@@ -59,8 +59,19 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-
     public function reviews(){
         return $this->hasMany(Review::class);
+    }
+
+    public function shopcart(){
+        return $this->hasMany(Review::class);
+    }
+
+    public function orderitem(){
+        return $this->hasMany(Orderitem::class);
+    }
+
+    public function order(){
+        return $this->hasMany(Order::class);
     }
 }
